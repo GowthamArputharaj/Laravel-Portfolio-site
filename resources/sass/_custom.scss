@@ -1,0 +1,84 @@
+body {
+    background-image: url('../../storage/app/images/seashore.jpg') !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.4) !important;
+}
+
+.navbar-toggler {
+    padding: 0.5rem!important;
+    border-radius: 50%;
+    border: 0.4rem solid black !important;
+    background: rgba(255, 255, 255, 0) !important;
+}
+
+.navbar-collapse {
+    text-align: center !important;
+}
+
+@media only screen 
+    and (min-device-width: 768px)  
+    and (-webkit-min-device-pixel-ratio: 1) {
+    .d-flex {
+          width: 75vw !important;
+      }
+}
+
+.cursor {
+    font-size: 2rem !important;
+    font-weight: 500 !important;
+    animation-name: blink;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-in;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+a {
+    color: black !important;
+    font-weight: 600;
+    font-size: 1.2rem !important;
+}
+
+li {
+    border-bottom: 2px solid rgba(255, 255, 255, 0) !important;
+}
+
+li:hover {
+    border-bottom: 2px solid black !important;
+}
+
+nav {
+    padding: 5px 0 0 0 !important;
+    box-shadow: 0px 2px 5px black;
+}
+
+.containerr {
+    background: rgba(255, 255, 255, 0.4) !important;
+    font-size: 1rem !important;
+    color: black !important;
+    width: 60vw !important;
+    line-height: 1rem !important;
+    letter-spacing: 0.1rem !important;
+    font-weight: 600;
+    margin: auto !important;
+    width: 100vw !important;
+    margin-top: 10vh !important;
+}
+
+@media screen 
+  and (min-device-width: 789px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+      .containerr {
+          width: 75vw !important;
+      }
+}
