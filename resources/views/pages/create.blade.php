@@ -7,6 +7,9 @@
             <!--a href="{{ route('study.create') }}" class="btn btn-warning">Send Message to Gowtham</a-->
             {!! Form::open(['action' => 'Dbcontroller@store', 'method' => 'POST']) !!}
             <div class="form-group">
+                {!! Form::text('sender_name', '', ['class' => 'form-control', 'placeholder' => 'Your Sweet Name']); !!}
+            </div>
+            <div class="form-group">
                 {{-- {{ Form::label('msg', 'Message') }} --}}
                 {!! Form::textarea('msg', '', ['class' => 'form-control', 'placeholder' => 'Message']); !!}
             </div>

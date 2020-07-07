@@ -8,6 +8,9 @@ use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
+use App\Mail\MailMessage;
+use Illuminate\Support\Facades\Mail;
+
 class Dbcontroller extends Controller
 {
     /**
@@ -39,9 +42,22 @@ class Dbcontroller extends Controller
     public function store(Request $request)
     {
         $msg = new Study;
+        $msg->sender_name = $request->input('sender_name');
         $msg->msg = $request->input('msg');
         $msg->user_id = auth()->user()->id;
         $msg->save();
+
+        $messageDetails = [
+            '_auth_id' => auth()->user()->id,
+            '_auth_name' => auth()->user()->name,
+            '_auth_email' => auth()->user()->email,
+            'name' => $request->input('sender_name'),
+            'message' => $request->input('msg'),
+        ];
+
+        $gowtham = 'gowtham.work.id@gmail.com';
+        
+        Mail::to($gowtham)->send(new MailMessage($messageDetails));
 
         return view('pages.contact');
     }
@@ -105,15 +121,5 @@ class Dbcontroller extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function downl(){
-
-        /* $pa = storage_path('app');  
-
-        return response()->download($pa.'\fileFolder\sample.pdf', 'sample'.time().'.pdf', ['header' => 'Gowtham Resume pdf file']);
-        
-        return Storage::download('\fileFolder\sample.pdf', 'Gowtham.pdf', ['header' => 'This is Gowtham']); */
-
     }
 }
